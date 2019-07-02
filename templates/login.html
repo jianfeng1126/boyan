@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$</title>
+    <style>
+        body{
+            width: 1200px;
+            height: 453px;
+            background-image: url("/static/img/abc.jpg");
+            background-size: 100%;
+        }
+        #div1{
+            {#text-align: center;#}
+            line-height: 120px;
+            margin-left: 300px;
+            color: aquamarine;
+            font-style: normal;
+            font-size: 50px;
+            font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
+        }
+        #div2{
+            line-height: 45px;
+            margin-top: 100px;
+            margin-left: 200px;
+            width: 500px;
+            height: 200px;
+            border: 0px;
+            {#background-color: darkturquoise ;#}
+
+        }
+        #tou{
+            font-size: 30px;
+            color: #e50000;
+        }
+        #yh{
+            width: 200px;
+        }
+        #mm{
+            width: 200px;
+        }
+        #dl{
+            margin-left:20px;
+            width: 80px;
+            background-color: mediumturquoise
+        }
+        #zc{
+            margin-left: 80px;
+            width: 80px;
+            background-color: mediumturquoise
+        }
+    </style>
+</head>
+<body>
+<div id="div1">大众点评医疗健康齿科医疗机构查询</div>
+<center>
+    <div id="div2">
+        <form action="" method="post">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <th colspan="2" align="center" id="tou">欢迎登录</th>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;">用户名：</td>
+                    <td><input name="username" id="yh"/></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;">密码：</td>
+                    <td><input name="userpassward" id="mm"/></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="登录" id="dl"/></td><td><input type="submit" value="注册" id="zc"/></td>
+                </tr>
+            </table>
+        </form>
+
+    </div>
+</center>
+</body>
+</html>

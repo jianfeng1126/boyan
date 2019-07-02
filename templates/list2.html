@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            background-color: aquamarine;
+            color: red;
+        }
+        #tian{
+            font-size: 30px;
+            background-color: aqua;
+        }
+        a{
+            color: red;
+        }
+        #div2{
+            background-color: chartreuse;
+        }
+        #biao{
+            color: blue;
+        }
+        #phone{
+            color: red;
+        }
+        .pagination{
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+<center>
+<form action="/dept/listlike/" method="post">
+    <div id="div1">
+        <table border="0">
+            <tr>
+                <td colspan="9" align="center"><h2>商户数据检索</h2></td>
+            </tr>
+            <tr>
+                <td align="right">地址：</td>
+                <td><input name="shop_address"/></td>
+                <td align="right">效果评分：</td>
+                <td><input name="shop_effect"/></td>
+                <td align="right">服务评分：</td>
+                <td><input name="shop_service"/></td>
+                <td align="right">商户星级：</td>
+                <td><input name="shop_star"/></td>
+                <td>&nbsp;&nbsp;&nbsp;<input type="submit" value="检索"/></td>
+            </tr>
+        </table>
+    </div>
+    </form>
+    <div id="tian"><a href="/dept/toadd/">商户添加</a></div>
+    <div id="div2">
+    <table width="90%" border="1">
+        <thead>
+        <tr align="center" id="biao">
+            <th>序号</th>
+            <th>医院名称</th>
+            <th>评论条数</th>
+            <th>人均消费</th>
+            <th>效果</th>
+            <th>服务</th>
+            <th>环境</th>
+            <th>地址</th>
+            <th>电话</th>
+            <th>营业时间</th>
+            <th>网址</th>
+            <th>商户星级</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        {% for dazhong in DAZHONGS %}
+        <tr align="center">
+            <!--<td>{{ forloop.counter }}</td>-->
+            <td>{{ dazhong.id }}</td>
+            <td><a href="/dept/info?id={{ dazhong.id }}">{{ dazhong.shop_name }}</a></td>
+            <td>{{ dazhong.shop_reviewcount }}</td>
+            <td>{{ dazhong.shop_avgpricetitle }}</td>
+            <td>{{ dazhong.shop_effect }}</td>
+            <td>{{ dazhong.shop_service }}</td>
+            <td>{{ dazhong.shop_surroundings }}</td>
+            <td>{{ dazhong.shop_address }}</td>
+            <td id="phone">{{ dazhong.shop_telephonenumber }}</td>
+            <td>{{ dazhong.shop_businesshours }}</td>
+            <td><a href="">{{ dazhong.shop_url }}</a></td>
+            <td>{{ dazhong.shop_star }}</td>
+            <th><a href="/dept/delete?id={{ dazhong.id }}">删除</a></th>
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+    <div class="pagination">
+    <span class="step-links">
+        <!--
+           ZHAOPINS.has_previous:是否有上一页
+           ZHAOPINS.previous_page_number:第二分页对象的上一页码的值
+           ZHAOPINS.has_next：是否有下一页
+           ZHAOPINS.next_page_number：第二分页对象的下一页码的值
+           ZHAOPINS.paginator.page_range：页码列表，从1开始
+           ZHAOPINS.number  当前页的页码值
+           ZHAOPINS.paginator.num_pages:共几页
+           ZHAOPINS.paginator.count：数据总条数
+         -->
+        <a href="/dept/listdazhong?page=1">首页</a>&nbsp;&nbsp;共{{  DAZHONGS.paginator.num_pages }}页&nbsp;&nbsp;/&nbsp;&nbsp;第{{ DAZHONGS.number }}页&nbsp;&nbsp;/&nbsp;&nbsp;数据总条数{{ DAZHONGS.paginator.count }}&nbsp;&nbsp;&nbsp;&nbsp;
+        {% if DAZHONGS.has_previous %}
+            <a href="/dept/listdazhong?page={{ DAZHONGS.previous_page_number }}">上一页</a>
+        {% endif %}
+
+        {% for pg in DAZHONGS.paginator.page_range %}
+                {% if DAZHONGS.number == pg %}
+                    <a style="color:red;font-weight:bold;" href="/dept/listdazhong?page={{ pg }}">{{ pg }}</a>&nbsp;&nbsp;
+                {% else %}
+                   <a href="/dept/listdazhong?page={{ pg }}">{{ pg }}</a>&nbsp;&nbsp;
+                {% endif %}
+        {% endfor %}
+
+        {% if DAZHONGS.has_next %}
+            <a href="/dept/listdazhong?page={{ DAZHONGS.next_page_number }}">下一页</a>
+        {% endif %}
+        &nbsp;&nbsp;
+        <a href="/dept/listdazhong?page={{  DAZHONGS.paginator.num_pages }}">尾页</a>
+
+        到&nbsp;
+        <select id="goTo" onchange="goPage(this.value)">
+            {% for pg in DAZHONGS.paginator.page_range %}
+                {% if DAZHONGS.number == pg %}
+                    <option value="{{ pg }}" selected='selected'>{{ pg }}</option>
+                {% else %}
+                    <option value="{{ pg }}">{{ pg }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+        &nbsp;页
+        </span>
+
+        <script>
+        function goPage(page){
+            window.location.href="/dept/listdazhong?page="+page;
+        }
+        </script>
+
+    </div>
+</center>
+</body>
+</html>

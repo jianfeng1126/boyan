@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$</title>
+    <style>
+        body{
+            width: 1200px;
+           height: 453px;
+           background-image: url("/static/img/abc.jpg");
+           background-size: 100%;
+        }
+        #div2{
+            margin-top: 50px;
+            margin-left: 150px;
+            line-height: 40px;
+        }
+        #xx{
+            font-size: 30px;
+            font-weight: bold;
+            color: red;
+        }
+        #fh{
+            margin-right: 40px;
+            font-size: 15px;
+            font-weight: bold;
+            color: darkmagenta;
+            width: 100px;
+            background-color: mediumturquoise
+
+        }
+        #xg{
+            margin-left: 50px;
+            font-size: 15px;
+            font-weight: bold;
+            color: darkmagenta;
+            width: 100px;
+            background-color: mediumturquoise
+        }
+        .tt{
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .dd{
+            height: 20px;
+            font-size: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<center>
+    <form action="/dept/update/" method="post">
+        <div id="div2">
+        <table border="0" width="850">
+            <tr>
+                <td colspan="2" align="center" id="xx">信息修改</td>
+            </tr>
+            <tr>
+                <td align="right" class="tt">医院名称：</td>
+                <td><input name="shop_name" size="100" value="{{ DAZHONG.shop_name }}" class="dd"/></td>
+            </tr>
+            <tr>
+                <td align="right" class="tt">地址：</td>
+                <td><input name="shop_address" size="100" value="{{ DAZHONG.shop_address}}" class="dd"/></td>
+            </tr>
+            <tr>
+                <td align="right" class="tt">电话：</td>
+                <td><input name="shop_telephonenumber" size="100" value="{{ DAZHONG.shop_telephonenumber}}" class="dd"/></td>
+            </tr>
+             <tr>
+                <td align="right" class="tt">营业时间：</td>
+                <td><input name="shop_businesshours" size="100" value="{{ DAZHONG.shop_businesshours }}" class="dd"/></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="hidden" name="id" value="{{ DAZHONG.id }}"/>
+                    <input type="button" value="返回" onclick="history.back()" id="fh"/>
+                    <input type="submit" value="修改" id="xg"/>
+                </td>
+            </tr>
+        </table>
+        </div>
+    </form>
+</center>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+       body{
+           width: 1200px;
+           height: 453px;
+           background-image: url("/static/img/bbb.jpg");
+           background-size: 100%;
+       }
+        #myform{
+            color: #e50000;
+            margin-left: 150px;
+            font-size: 15px;
+            font-weight: bold;
+        }
+        #zj{
+            font-size: 20px;
+            font-weight: bold;
+            color: darkmagenta;
+            width: 100px;
+            background-color: mediumturquoise
+        }
+    </style>
+</head>
+<body>
+<center>
+    <form action="/dept/add/" method="post" id="myform">
+        <div id="div1">
+        <table border="0" >
+            <tr>
+                <td colspan="11" align="center" style="font-size: 25px">增加机构</td>
+            </tr>
+            <tr>
+                <td align="right">医院名称：</td>
+                <td><input id="shop_name" name="shop_name" size="100"/></td>
+                <td><span class="red" id="shop_nameeerr"></span></td>
+
+            </tr>
+            <tr>
+                <td align="right">评论条数：</td>
+                <td><input id="shop_reviewcount" name="shop_reviewcount" size="100"/></td>
+                <td><span class="red" id="shop_reviewcounteerr"></span></td>
+            </tr>
+            <tr>
+                <td align="right">人均消费：</td>
+                <td><input id="shop_avgpricetitle" name="shop_avgpricetitle" size="100"/></td>
+                <td><span class="red" id="shop_avgpricetitleeerr"></span></td>
+            </tr>
+              <tr>
+                <td align="right">效果：</td>
+                <td><input id="shop_effect" name="shop_effect" size="100"/></td>
+                <td><span class="red" id="shop_effecteerr"></span></td>
+            </tr>
+              <tr>
+                <td align="right">服务：</td>
+                <td><input id="shop_service" name="shop_service" size="100"/></td>
+                <td><span class="red" id="shop_serviceeerr"></span></td>
+            </tr>
+              <tr>
+                <td align="right">环境：</td>
+                <td><input id="shop_surroundings" name="shop_surroundings" size="100"/></td>
+                <td><span class="red" id="shop_surroundingseerr"></span></td>
+            </tr>
+              <tr>
+                <td align="right">地址：</td>
+                <td><input id="shop_address" name="shop_address" size="100"/></td>
+                <td><span class="red" id="shop_addresseerr"></span></td>
+            </tr>
+              <tr>
+                <td align="right">电话：</td>
+                <td><input id="shop_telephonenumber" name="shop_telephonenumber" size="100"/></td>
+                <td><span class="red" id="shop_telephonenumbereerr"></span></td>
+            </tr>
+              <tr>
+                <td align="right">营业时间：</td>
+                <td><input id="shop_businesshours" name="shop_businesshours" size="100"/></td>
+                <td><span class="red" id="shop_businesshourseerr"></span></td>
+            </tr>
+              <tr>
+                <td align="right">网址：</td>
+                <td><input id="shop_url" name="shop_url" size="100"/></td>
+                <td><span class="red" id="shop_urleerr"></span></td>
+            </tr>
+              <tr>
+                <td align="right">商户星级：</td>
+                <td><input id="shop_star" name="shop_star" size="100"/></td>
+                <td><span class="red" id="shop_stareerr"></span></td>
+            </tr>
+            <tr>
+                <td colspan="11" align="center"><input type="submit" value="增加" id="zj"/></td>
+            </tr>
+        </table>
+        </div>
+    </form>
+
+</center>
+</body>
+</html>
